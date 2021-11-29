@@ -6,6 +6,7 @@ import { NgModule } from "@angular/core";
 import { Module1RoutingModule } from "./module1-routing.module";
 import { CounterComponent } from './components/counter/counter.component';
 import { CommonModule } from '@angular/common';
+import { CounterService } from './services/counter.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { CommonModule } from '@angular/common';
     ResetCounterComponent,
   ],
   providers:[
+    CounterService,
     CounterStateService,
     CounterRemote,
   ]

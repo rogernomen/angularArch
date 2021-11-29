@@ -1,13 +1,13 @@
-import { CounterStateService } from './../../../services/counter-state.service';
+import { CounterStateService } from './counter-state.service';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class ComponentModule1Service {
+export class CounterService {
 
   constructor(private readonly counterStateService: CounterStateService) {}
 
-  getCounterValue(): Observable<number> {
+  getCounter(): Observable<number> {
     return this.counterStateService.getCounter();
   }
 
@@ -17,5 +17,9 @@ export class ComponentModule1Service {
 
   decreaseCounterValue(): void {
     this.counterStateService.decreaseCounterValue();
+  }
+
+  resetCounterValue(): void {
+    this.counterStateService.resetCounterValue();
   }
 }

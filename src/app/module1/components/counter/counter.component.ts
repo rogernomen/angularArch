@@ -1,28 +1,28 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { ComponentModule1Service } from "./services/component-module1.service";
+import { CounterComponentService } from "./services/counter-component.service";
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
-  providers: [ComponentModule1Service]
+  providers: [CounterComponentService]
 })
 
 export class CounterComponent implements OnInit {
   counterValue$: Observable<number> | undefined;
 
-  constructor(private readonly componentModule1Service: ComponentModule1Service) {}
+  constructor(private readonly counterComponentService: CounterComponentService) {}
 
   ngOnInit() {
-    this.counterValue$ = this.componentModule1Service.getCounterValue();
+    this.counterValue$ = this.counterComponentService.getCounterValue();
   }
 
   increaseCounter(): void {
-    this.componentModule1Service.increaseCounterValue();
+    this.counterComponentService.increaseCounterValue();
   }
 
   decreaseCounter(): void {
-    this.componentModule1Service.decreaseCounterValue();
+    this.counterComponentService.decreaseCounterValue();
   }
 }
